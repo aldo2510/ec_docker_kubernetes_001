@@ -25,13 +25,10 @@
 | `docker inspect`    | Proporciona detalles detallados sobre un contenedor o imagen en formato JSON. Ejemplo: `docker inspect <container_id>`                                 |
 
 
-2. Ver versión de un contenedor:
-   
-    ```bash
+### 02. Ver versión de un contenedor:
     docker -v
-    ```
 
-3. Ejecutar Hola Mundo en Docker:
+### 03. Ejecutar Hola Mundo en Docker:
    
     ```bash
     docker run hello-world
