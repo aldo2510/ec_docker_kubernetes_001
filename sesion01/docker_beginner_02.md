@@ -150,66 +150,43 @@ Docker proporciona un solo comando que eliminará cualquier recurso (imágenes, 
 4. Eliminar todos los contenedores creados (1 minuto)
 
 5. Crear un contenedor Nginx con un volumen persistente (5 minutos)
-**Instrucciones:**
+
     - Crea un contenedor Nginx.
     - Monta un volumen persistente desde el sistema host a la carpeta `/usr/share/nginx/html` del contenedor.
     - Exponer el puerto 8080 para acceder al contenedor.
 
-        ```bash
-        docker run -d -p 8080:80 -v /path/to/html:/usr/share/nginx/html --name nginx-persistent nginx
-        ```
-2. Crear una red personalizada y conectar dos contenedores (6 minutos)
+6. Crear una red personalizada y conectar dos contenedores (6 minutos)
 Instrucciones:
 
     - Crea una red personalizada llamada my_network.
     - Crea dos contenedores, uno con Nginx y otro con un contenedor Alpine, conectados a my_network.
-        ```bash
-        docker network create my_network
-        docker run -d --name nginx-container --network my_network nginx
-        docker run -d --name alpine-container --network my_network alpine sleep 3600
-        ```
+
 7. Crear un contenedor con múltiples puertos expuestos (5 minutos)
 Instrucciones:
 
     - Crea un contenedor de Apache que exponga tanto el puerto 80 como el puerto 443, y ejecuta en segundo plano.
-        ```bash
-        docker run -d -p 8080:80 -p 8443:443 --name apache-container httpd
-        ```
 
 8. Crear un contenedor MongoDB con autenticación habilitada (6 minutos)
 Instrucciones:
 
     - Crea un contenedor MongoDB que utilice autenticación con un usuario y contraseña específicos.
-        ```bash
-        docker run -d -p 27017:27017 --name mongodb-container -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=rootpassword mongo
-        ```
+
 9. Crear un contenedor Redis y probar su conexión desde otro contenedor (7 minutos)
 Instrucciones:
 
     - Crea un contenedor Redis en el puerto 6379.
     - Desde otro contenedor, ejecuta un cliente Redis y conéctate al contenedor Redis.
-        ```bash
-        docker run -d --name redis-container -p 6379:6379 redis
 
-
-        docker run -it --rm --link redis-container redis redis-cli -h redis-container
-        ```
 10. Crear un contenedor MySQL con una base de datos personalizada (7 minutos)
 Instrucciones:
 
     - Crea un contenedor MySQL con una base de datos llamada mydb y expón el puerto 3306.
-        ```bash
-        docker run -d -p 3306:3306 --name mysql-container -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydb mysql:latest
-        ```
+
 11. Crear un contenedor Docker y conectarlo a una base de datos externa (8 minutos)
 Instrucciones:
 
     - Crea un contenedor con una aplicación web que se conecte a una base de datos MySQL externa ejecutándose en otro host o contenedor.
     Comando:
-
-        ```bash
-        docker run -d --name web-app-container --link mysql-container:mysql webapp
-        ```
 
 12. Crear un contenedor en modo interactivo y ejecutar comandos dentro de él (4 minutos)
 Instrucciones:
@@ -217,17 +194,10 @@ Instrucciones:
     - Crea un contenedor en modo interactivo con el contenedor Ubuntu.
     - Ejecuta comandos dentro del contenedor, como ls o pwd.
 
-        ```bash
-        docker run -it ubuntu bash
-        ```
 13. Crear un contenedor con un volumen para persistencia de datos (5 minutos)
 Instrucciones:
 
     - Crea un contenedor con un volumen para persistir los datos de la base de datos MySQL.
-
-        ```bash
-        docker run -d -p 3306:3306 --name mysql-container -v /path/to/local/directory:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=rootpassword mysql:latest
-        ```
 
 14. Crear una red personalizada y conectar un contenedor Nginx y MySQL (7 minutos)
 
@@ -235,63 +205,32 @@ Instrucciones:
     - Crea un contenedor Nginx y un contenedor MySQL conectados a la red my_custom_network.
     Comando:
 
-        ```bash
-        docker network create my_custom_network
-        docker run -d --name nginx-container --network my_custom_network nginx
-        docker run -d --name mysql-container --network my_custom_network mysql
-        ```
-
 15. Ejecutar un contenedor en segundo plano y obtener sus logs en tiempo real (6 minutos)
 Instrucciones:
 
     - Crea un contenedor Nginx en segundo plano y obtén los logs de este contenedor.
-
-        ```bash
-        docker run -d --name nginx-container nginx
-        docker logs -f nginx-container
-        ```
 
 16. Ejecutar un contenedor con variables de entorno (6 minutos)
 Instrucciones:
 
     - Ejecuta un contenedor MySQL con una variable de entorno adicional para configurar el nombre de la base de datos.
 
-        ```bash
-        docker run -d -p 3306:3306 --name mysql-container -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydb mysql
-        ```
-
 17. Montar un archivo de configuración desde el host (5 minutos)
 Instrucciones:
 
     - Crea un contenedor con Nginx y monta un archivo de configuración nginx.conf desde el host.
-Comando:
-
-        ```bash
-        docker run -d -p 8080:80 -v /path/to/nginx.conf:/etc/nginx/nginx.conf --name nginx-custom nginx
-        ```
 
 18. Realizar un backup de un volumen de Docker (8 minutos)
 Instrucciones:
 
     - Crea un volumen en Docker, copia datos dentro del volumen y realiza un backup.
-        ```bash
-        docker volume create my_volume
-        docker run -v my_volume:/data busybox cp -r /data /backup
-        ```
 
 19. Verificar la versión de Docker desde el contenedor (3 minutos)
 Instrucciones:
 
     - Crea un contenedor y verifica la versión de Docker instalada dentro de él.
-        ```bash
-        docker run --rm ubuntu bash -c "apt-get update && apt-get install -y docker.io && docker --version"
-        ```
+
 20. Hacer un push de una imagen Docker a Docker Hub (7 minutos)
 Instrucciones:
 
     - Etiqueta tu imagen Docker y haz un push a Docker Hub.
-
-        ```bash  
-        docker tag my_image your_username/my_image:latest
-        docker push your_username/my_image:latest
-        ```
