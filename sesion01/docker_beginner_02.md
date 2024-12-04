@@ -28,40 +28,30 @@
 ### 02. Ver versión de un contenedor:
     docker -v
 
-### 03. Ejecutar Hola Mundo en Docker:
-   
-    ```bash
+### 03. Ejecutar Hola Mundo en Docker:   
     docker run hello-world
-    ```
 
-4. Crear containers [nginx](https://hub.docker.com/_/nginx) 
-    
-    ```bash
+### 04. Crear containers [nginx](https://hub.docker.com/_/nginx) 
+
     docker pull nginx
     docker pull nginx:latest
     docker run -p 8080:80 nginx:alpine
     docker run -d -p 8888:80 nginx:latest
     docker run -d -p 8889:80 --name nginx-devops nginx:latest
-    ```
 
-5. Listar imagenes:
+### 05. Listar imagenes:
     
-    ```bash
     docker images
     docker image ls
-    ```
 
-6. Ver contenedores corriendo:
+### 06. Ver contenedores corriendo:
    
-    ```bash
     docker ps
-    ```
 
-7. Crear containers [tomcat](https://hub.docker.com/_/tomcat) 
-    ```bash
+### 07. Crear containers [tomcat](https://hub.docker.com/_/tomcat) 
     docker run -p 9000:8080 tomcat:9-slim
     docker run -p 9000:8080 -d tomcat:9-slim
-    ```
+    
 8. Crear containers [mysql](https://hub.docker.com/_/mysql) 
     ```bash
     docker run -e MYSQL_ROOT_PASSWORD=password -d mysql:8.0
