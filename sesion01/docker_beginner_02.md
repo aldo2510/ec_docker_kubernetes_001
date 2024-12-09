@@ -121,8 +121,8 @@
 ### 13. Volumenes Jenkins [Jenkins](https://hub.docker.com/_/jenkins)  
     mkdir jenkins_home
     ls
-    sudo chown -R 1000:1000 /home/aldotrucios/jenkins_home
-    docker run -d -p 9004:8080 --name jenkins-dev3 -v "jenkins_home:/var/jenkins_home" jenkins/jenkins
+    sudo chown -R 1000:1000 $(pwd)/jenkins_home
+    docker run -d -p 8081:8080  -v $(pwd)/jenkins_home:/var/jenkins_home jenkins/jenkins:lts
     docker ps
 
     localhost:9001
