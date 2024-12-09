@@ -1,0 +1,8 @@
+FROM alpine
+
+ADD demo03.sh ./app.sh
+RUN chmod +x ./app.sh
+
+ENV NAME "Entrenamiento"
+ENV LAST_NAME "Certero"
+ENTRYPOINT ./app.sh
