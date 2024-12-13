@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-pod
+spec:
+  containers:
+  - name: alpine
+    image: alpine
+    env:
+    - name: MY_VARIABLE
+      value: "Hello Kubernetes"
+    command: ["sh", "-c", "echo $MY_VARIABLE && sleep 3600"]
