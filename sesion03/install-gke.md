@@ -1,5 +1,27 @@
 # install gke
-sudo yum install google-cloud-sdk-gke-gcloud-auth-plugin -y
+```
+    sudo yum install google-cloud-sdk-gke-gcloud-auth-plugin -y
+```
 
 # conectar cluster en local
-gcloud container clusters get-credentials cluster-1 --region us-central1 --project hypnotic-epoch-411523
+```
+    gcloud container clusters get-credentials cluster-1 --region us-central1 --project hypnotic-epoch-411523
+```
+
+# install kubectl
+
+```bash
+    # This overwrites any existing configuration in /etc/yum.repos.d/kubernetes.repo
+    cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+    [kubernetes]
+    name=Kubernetes
+    baseurl=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/
+    enabled=1
+    gpgcheck=1
+    gpgkey=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/repodata/repomd.xml.key
+EOF
+```
+
+```
+    sudo yum install -y kubectl
+```
