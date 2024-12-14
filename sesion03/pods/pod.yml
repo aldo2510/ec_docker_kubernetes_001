@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: web-ctr
-      image: aldot25/app01:1.0
+      image: aldot25/appec:1.0.0
       ports:
         - containerPort: 8080
