@@ -1,9 +1,9 @@
 # Crear máquina virtual en GCP
 ```console
-printf 'yes' | gcloud compute --project=hypnotic-epoch-411523 firewall-rules create all-inbound --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
+printf 'yes' | gcloud compute --project=<project-id> firewall-rules create all-inbound --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=all --source-ranges=0.0.0.0/0
 
 
-printf 'yes' | gcloud compute --project=hypnotic-epoch-411523 firewall-rules create all-outbound --direction=EGRESS --priority=1000 --network=default --action=ALLOW --rules=all --destination-ranges=0.0.0.0/0
+printf 'yes' | gcloud compute --project=<project-id> firewall-rules create all-outbound --direction=EGRESS --priority=1000 --network=default --action=ALLOW --rules=all --destination-ranges=0.0.0.0/0
 
 gcloud compute instances create devops-jenkins-server \
 --project=<project-id> \
