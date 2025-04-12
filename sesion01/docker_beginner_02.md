@@ -144,7 +144,7 @@ Docker proporciona un solo comando que eliminará cualquier recurso (imágenes, 
 ### 17. Ejercicios
 1. Crear contenedor nginx con el tag latest, que ejecute por el puerto 8801 en background y que se llame nginx-jenkins (4 minutos)
 
-2. Crear contenedor sonarqube con el tag sonarqube:8.9.9-community, que se llame sonarqube-devops y que ejecute en background por el puerto 9500 (4 minutos)
+2. Crear contenedor sonarqube con el tag sonarqube:lts-community, que se llame sonarqube-devops y que ejecute en background por el puerto 9500 (5 minutos)
 
 3. Crear contenedor jenkins en background con el tag latest, que ejecute en el puerto 9002 y que se llame jenkins-sesion01 (4 minutos)
 
